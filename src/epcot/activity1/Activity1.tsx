@@ -1,23 +1,28 @@
-import React from 'react';
-import styled from "styled-components";
+import React, { useState } from 'react'
+import styled from "styled-components"
 
-const Styles = styled.div`
-  color: red;
-  
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-`;
+import Globe from "../activity1/Globe"
 
-function Activity1() {
+const Activity1Base = ({ className }) => {
+  const [riding, setRiding] = useState(true)
   return (
-    <Styles>
-      <div className="container">
+    <div className='epcot'>
+      <div className={`${className}__container`}>
         Hello from Activity 1 Epcot
+        <div className={`${className}__container`}>
+        <button onClick={() => setRiding(!riding)}>Riding</button>
+        </div>
       </div>
-    </Styles>
+      <Globe riding={riding}></Globe>
+    </div>
   )
 }
 
+const Activity1 = styled(Activity1Base)`
+  &__container {
+    color: red;
+    max-width: 900px;
+    margin: 0 auto;
+  }  
+`
 export default Activity1
