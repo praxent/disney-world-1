@@ -73,7 +73,7 @@ function Activity2() {
                 <th>Type</th>
                 <th colSpan="2">Quantity</th>
               </tr>
-
+ 
               {/* loop over the menu */}
               {rainforest_menu.map((menu) => (
                 <tr key={menu.id}>
