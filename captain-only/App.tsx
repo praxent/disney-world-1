@@ -32,7 +32,7 @@ function App() {
   return (
     <>
       <Instructions />
-      <AccessControl />
+      <AccessControl >
       <Routes>
         <Route path={CONFIG.ROUTE.ROOT} element={<DisneyWorld/>}/>
 
@@ -58,6 +58,7 @@ function App() {
 
         <Route path={CONFIG.ROUTE.ANY} element={<DisneyWorld/>}/>
       </Routes>
+      </AccessControl>
     </>
   )
 }

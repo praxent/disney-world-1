@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Background from "./images/liberty-tree-tavern.jpg";
 import menu from "./images/menu.jpg";
 import { List, Container, Item } from "semantic-ui-react";
 import Menu from "./Menu";
-import MenuList from "./MenuList";
+import {AccessControlContext} from '../../../captain-only/AccessControl';
 
 const Styles = styled.div`
   color: #0836b0;
@@ -30,6 +30,8 @@ const Activity2 = () => {
 
   const sellItemHandle = (liberty_tree) => {
     let updatedDrinks = liberty_treeMenu.map((menuItem) => {
+      console.log(AccesControl);
+
       if (menuItem.id === liberty_tree.id) {
         return { ...menuItem, quantity: liberty_tree.quantity - 1 };
       }
@@ -38,12 +40,7 @@ const Activity2 = () => {
     setMenu(updatedDrinks);
   };
 
-  useEffect(() => {
-    axios.get("http://localhost:4000/liberty_tree").then((response) => {
-      console.log(response);
-      setMenu(response.data);
-    });
-  }, []);
+  const AccesControl= useContext(AccessControlContext)
 
   useEffect(() => {
     getDrinksMenu().then((res) => {
@@ -53,6 +50,7 @@ const Activity2 = () => {
 
   return (
     <Styles>
+     
       <div
         style={{
           backgroundImage: `url(${Background})`,

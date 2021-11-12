@@ -1,9 +1,10 @@
+import React, { useState } from "react";
 import { Button, Container } from "semantic-ui-react";
 import styled from "styled-components";
 
 const Styles = styled.div`
-  .test {
-    background-color: #0A35A2;
+  .button {
+    background-color: #0a35a2;
     border: none;
     color: white;
     padding: 5px 10px;
@@ -22,14 +23,29 @@ const Styles = styled.div`
   }
 `;
 
-function AccessControl() {
+export const AccessControlContext = React.createContext(true);
+
+function AccessControl ({children}) {
+    const [underage, setUnderage] = useState(true);
+    
   return (
-    <Styles className="container">
-      <Container>
-        <Button content="Adult" className="test" />
-        <Button content="Child" className="test" />
-      </Container>
-    </Styles>
+    <AccessControlContext.Provider value={underage}>
+      <Styles className="container">
+        <Container>
+          <Button
+            content="Adult"
+            className="button"
+            onClick={() => setUnderage(false)}
+          />
+          <Button
+            content="Child"
+            className="button"
+            onClick={() => setUnderage(true)}
+          />
+        </Container>
+      </Styles>
+      {children}
+    </AccessControlContext.Provider>
   );
 }
 
