@@ -25,12 +25,14 @@ import MagicKingdom from ".//MagicKingdom";
 import {default as MagicKingdomActivity1} from "../src/magic-kingdom/activity1/Activity1";
 import {default as MagicKingdomActivity2} from "../src/magic-kingdom/activity2/Activity2";
 import {default as MagicKingdomActivity3} from "../src/magic-kingdom/activity3/Activity3";
+import AccessControl from './AccessControl';
 
 function App() {
 
   return (
     <>
       <Instructions />
+      <AccessControl >
       <Routes>
         <Route path={CONFIG.ROUTE.ROOT} element={<DisneyWorld/>}/>
 
@@ -56,6 +58,7 @@ function App() {
 
         <Route path={CONFIG.ROUTE.ANY} element={<DisneyWorld/>}/>
       </Routes>
+      </AccessControl>
     </>
   )
 }
