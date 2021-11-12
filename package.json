@@ -9,6 +9,7 @@
     "mockserver": "json-server --watch captain-only/db.json --port=4000"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "json-server": "^0.17.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
