@@ -14,7 +14,7 @@ const Styles = styled.div`
 function Activity1() {
 
     //let riding: Boolean = useState(true);
-    //const [isDownSlide, setIsDownSlide] = useState();
+    const [isDownSlide, setIsDownSlide] = useState();
 
   return (
     <Styles>
